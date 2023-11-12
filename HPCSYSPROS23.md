@@ -56,6 +56,12 @@ Also moving to Slurm from Torque.
 Sergi Girona - Barcelona Supercomputing Center (BSC)
 
 <ins>Notes</ins>
+The older MareNostrum was installed in a 1950s Chapel! BSC is a nationally funded facility. MareNostrum 4 is made up of 4 partitions with a total of 13.9 Pflops with partitions focused on GPU and ARM as well as normal x86. 
+MN5 will be in a whole new datacentre designed for 2-3 future installations. 3 water distribution loops, 4 km of piping! 2 MW UPS just for storage and important systems (not compute). 17 MW of cooling capacity, 13.5 MW for direct water cooling. They also use RDHX to cover things like switches. Inlet temps are 30-40 degrages, they plan to start low and see if they can push higher. Currently MN5 is very loud, particularly from the network switches as some are 600 W! Racks use between 63 kW and 72 kW depending on node configuration. The GPU racks pull 100kW. The DLC is becoming a limit as the pumps themselves are generating too much heat (?). Each rack row is 2MW.
+
+MN5 targets 200 Pflops and is a multi-nation system (EU). Cost estimated at 200 Million. NDR fat tree, 248 PB HDD, 2.81 PB NVMe, 402 PB tape. Installation targetted 2024.
+Atos and Lenovo. Intel Sapphire rapids and NVIDIA Hopper. Acceptance isn't just meeting HPL targets but also showing the system is stable without hardware faults for a period of time. Data transfers should be dowe via dedicated nodes which have a total ~1.6 TB per second (NFS/Samba/object). The GPU nodes have a heat exchanger for the DLC so they can control the power flow better. The login nodes are part of the UPS area so they have to be air-cooled as the DLC loop for compute isn't part of the UPS area.
+Asked the researchs to put the tapes in which apparently they enjoyed and they now see how complex the system is (1000s of tapes).
 
 ### Democratizing Remote HPC Storage Access
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp103&sess=sess422
@@ -65,6 +71,7 @@ Adam Focht - Pennsylvania State UniversityInstitute for Computational and Data S
 Accessing HPC storage remotely can be cumbersome and involve using out-of-band tools (i.e. NFS, SCP, or SSHFS on Windows or SMB on Linux). We have begun to provide users access to our HPC storage using a tool that enables a familiar interface and behavior - like OneDrive or Dropbox - and unifies access to university-wide storage pools. We will walk through the software, configuration, lessons learned, and next steps in offering this service to our researchers. We are also exploring the use of built-in file tagging and other internal automation to provide a sensitive data workflow for HIPAA-aligned data security. Efficacy and lessons learned from this approach will be discussed.
 
 <ins>Notes</ins>
+
 
 ### What a GReaT Scheduling Opportunity
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp105&sess=sess422
