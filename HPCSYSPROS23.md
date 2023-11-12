@@ -36,3 +36,17 @@ This paper describes a web portal called TrailblazingTurtle built for HPC and Op
 
 <ins>Notes</ins>
 Users can see there usage via a webpage which uses cgroup information. They are also able to monitor GPU usage (+PCI and nvlink bandwidth) which is interesting. Allows them to see users that are under-utilizing the resources they are requesting. Also helps to show if they should be using localscratch which could result in job speedups. They give power usage relative to common things like how far an eletric car could travel and also how much that job would have cost to run in AWS. _They de-prioities users that continue to under-utilise resources_. We could do this using a custom reasource once we have the metrics. They should this information to the users so they know it is happening and encourage them to make changes to their jobs. Using Prometheus for monitoring with the Thanos plugin for longer term storage. Using [node_export](https://github.com/prometheus/node_exporter), [redfish_exporter](https://github.com/jenningsloy318/redfish_exporter), and [pcm-sensor-server](https://github.com/intel/pcm). [GitHub](https://github.com/guilbaults/trailblazingturtle)
+
+### ICE 2.0: Restructuring and Growing an Instructional HPC Cluster
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp111&sess=sess422
+
+J. Eric Coulter - Georgia Institute of Technology
+
+The Partnership for an Advanced Computing Environment (PACE) at Georgia Tech (GT) has been running two campus-wide cluster resources available for academic courses and workshops for five years. The initial design focused on creating a federated resource for a wide range of educational topics, based on a PACE and College of Computing (COC) partnership. Due to funding, this took the form of separate resources, one funded by PACE, and another by COC. These "Instructional Cluster Environments", PACE-ICE and COC-ICE, became very popular with instructors at GT but led to a high maintenance cost due to the split nature of the environments. With the transition to the Slurm scheduler, PACE collaborated with COC to merge the two clusters into one, ICE. This work details the strategies used to sensibly merge the two production systems, including the storage architecture, shared system policies, and scheduler priority configurations that honor funding complexities.
+
+<ins>Notes</ins>
+ICE is a teaching cluster which uses a subset of the research hardware, currently 100 nodes with 3000 CPUS. All instructors are able to request access and then a course is given an "entitlement" that everyone enrolled in that course gains access via. This access is only granted while the couse is active and entitlements are a tree structure college-level / Department -> Intructor -> student. This also maps to a QoS tree and give priority to paying users and instructors during marking. Heavy users of Open OnDemand because of the type of users. 
+Migration 
+There were two systems which they decided to merge without data lose. 20K user directories across the systems with 7 TB of data. Data was copied with rsync (check sparse files!) which took about 5 days. Their filesystem seems slow so they bucketed home directoies into the last 2 digits of the UID to speed up ls of /home and /scratch. I don't know why it is slow because they have NetApp for home and Luster for scratch. Scratch clean up is at the end of each semester and deletes files older than 120 days.
+[GitHub](https://github.com/pace-gt/hpcsyspros-SC23-ICE)
+Also moving to Slurm from Torque.
