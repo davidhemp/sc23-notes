@@ -105,6 +105,12 @@ Heterogeneous test-bed clusters present a unique challenge in identifying system
 The paper introduces a taxonomy for classifying system issues into actionable categories of problems, while filtering out groups of messages that the system administrators would consider unimportant "noise". Finally we experiment with using newly available large language models as a form of message classifier, and share our results and experience with doing so. Results demonstrate promising performance, and more explainable results compared to currently available techniques, but the computational costs may offset the benefits.
 
 <ins>Notes</ins>
+They have ~30 different architectures and so they have a lot of variation in data supplied and quality of data. They also seem to have a lot of protoype hardware that might not have all the monitoring options available. The test bed is for users to test code before moving it to larger systems. They are trying to train a LLM that can learn based on historical classifications of them a system has an issue. They have tried to use AI before using minimum edit distance metrics. This wasn't maintainable as log output format changes over time, for example when fireware is updated. 
+The focus is not to determine the issue but to detect when there is one. Using OpenSearch as a database and Fluentd to collect. SciKit learn and xformers. A 4xA100 (Redstone) machine was used for training. TF-IDF used to find important words for each category which the AI will use for training. Lemmatization is used to handle the differences in error messages that relate to the same failure event. 
+traditional ML seemed to work although there might be some overfitting at they saw accuracy of 0.9995.
+Falcon-40B and Falcon-7B where used for LLM methods. Seemed to work but the LLM would rewrite the syslog message which would create a lot of overhead. In-fact LLM in general is too slow for realistic production use. 
+
+[GitHub]()
 
 ### Report on Adaptable Open-Source Disaster Recovery Solution for Multi-Petabyte Storage Systems
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp101&sess=sess422
