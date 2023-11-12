@@ -50,3 +50,58 @@ Migration
 There were two systems which they decided to merge without data lose. 20K user directories across the systems with 7 TB of data. Data was copied with rsync (check sparse files!) which took about 5 days. Their filesystem seems slow so they bucketed home directoies into the last 2 digits of the UID to speed up ls of /home and /scratch. I don't know why it is slow because they have NetApp for home and Luster for scratch. Scratch clean up is at the end of each semester and deletes files older than 120 days.
 [GitHub](https://github.com/pace-gt/hpcsyspros-SC23-ICE)
 Also moving to Slurm from Torque.
+
+### MareNostrum 5: Site Report from BSC
+
+Sergi Girona - Barcelona Supercomputing Center (BSC)
+
+<ins>Notes</ins>
+
+### Democratizing Remote HPC Storage Access
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp103&sess=sess422
+
+Adam Focht - Pennsylvania State UniversityInstitute for Computational and Data Sciences
+
+Accessing HPC storage remotely can be cumbersome and involve using out-of-band tools (i.e. NFS, SCP, or SSHFS on Windows or SMB on Linux). We have begun to provide users access to our HPC storage using a tool that enables a familiar interface and behavior - like OneDrive or Dropbox - and unifies access to university-wide storage pools. We will walk through the software, configuration, lessons learned, and next steps in offering this service to our researchers. We are also exploring the use of built-in file tagging and other internal automation to provide a sensitive data workflow for HIPAA-aligned data security. Efficacy and lessons learned from this approach will be discussed.
+
+<ins>Notes</ins>
+
+### What a GReaT Scheduling Opportunity
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp105&sess=sess422
+
+Gary Skouson - Pennsylvania State University
+
+There are likely more ideas about the fair way to schedule workloads than there are systems that run those workloads. Possibly more than the number of users of those systems. Unfortunately, since fair is different in different contexts, the optimal solution is unlikely to be a one-size-fits-all, solution, or even an adjustable-size solution where everyone turns a couple of knobs to get the optimal fair solution to meet their need.
+
+I will present GReaT allocations used at the Institute for Computational and Data Sciences, at Penn State University. We provide guaranteed start time expectations and priority scheduling, similar in some respects to condo-like scheduling systems. In addition to start time and resource availability, we provide access to temporary extended resources and protection against rogue or runaway jobs that could drain allocations. Our configuration required additional extensions in addition to the standard tools provided with slurm scheduling systems.
+
+<ins>Notes</ins>
+
+### Overcoming Active Directory Woes with Plain Text Caches and Replacing Passwords
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp110&sess=sess422
+
+Jason St John - Guardant Health
+
+Reliable authentication is a key component of all HPC systems. This paper discusses an approach that bypasses systemic authentication problems experienced by the authors to provide a simple and reliable manner of managing service accounts and user groups for HPC centers using plain text caches and alternatives to passwords.
+
+<ins>Notes</ins>
+
+### Heterogeneous Syslog Analysis: There Is Hope
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp108&sess=sess422
+
+Andres Quan - Los Alamos National Laboratory (LANL)
+
+Heterogeneous test-bed clusters present a unique challenge in identifying system hardware failures and anomalies as a result of the variation in the ways that errors and warnings are reported through the system log. We present a novel approach for the real-time classification of syslog messages, generated from a heterogeneous test-bed cluster, to proactively identify potential hardware issues and security events. By integrating machine learning models with high-performance computing systems, our system facilitates continuous system health monitoring.
+
+The paper introduces a taxonomy for classifying system issues into actionable categories of problems, while filtering out groups of messages that the system administrators would consider unimportant "noise". Finally we experiment with using newly available large language models as a form of message classifier, and share our results and experience with doing so. Results demonstrate promising performance, and more explainable results compared to currently available techniques, but the computational costs may offset the benefits.
+
+<ins>Notes</ins>
+
+### Report on Adaptable Open-Source Disaster Recovery Solution for Multi-Petabyte Storage Systems
+https://sc23.conference-program.com/presentation/?id=ws_hpcsysp101&sess=sess422
+
+Honwai Leong - University of Sydney
+
+The current generation of Research Data Store (RDS) at The University of Sydney comprises a pair of peta-scale data storage systems. We implemented a disaster recovery (DR) solution for data protection against catastrophic failure at either storage system. To handle large amount of data transactions into RDS, we took an open-source approach to design an adaptable DR solution that enables parallelized data replication capability between the pair of storage systems. In the last three years of operations, the DR solution has gone through a few iterations which saw improvement in efficiency. In this paper, we present the findings and outcomes from our DR implementation.
+
+<ins>Notes</ins>
