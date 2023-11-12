@@ -120,3 +120,10 @@ Honwai Leong - University of Sydney
 The current generation of Research Data Store (RDS) at The University of Sydney comprises a pair of peta-scale data storage systems. We implemented a disaster recovery (DR) solution for data protection against catastrophic failure at either storage system. To handle large amount of data transactions into RDS, we took an open-source approach to design an adaptable DR solution that enables parallelized data replication capability between the pair of storage systems. In the last three years of operations, the DR solution has gone through a few iterations which saw improvement in efficiency. In this paper, we present the findings and outcomes from our DR implementation.
 
 <ins>Notes</ins>
+Multi-site storage system with ~13 PB at each site. Half the storage is local and the other half is a copy from the other site (active-active). ILM is used to generates a list of new/changed files. using mpiFileUtils' dsync to perform a complete data synchronisation. Report that GNU parallel + rysnc seems to work better for smaller files and dsync is slower but better for larger files. Some projects are so large that they only DR at the weekend. 
+Clearing RAM cache on the data mover nodes improved performance significantly. 
+```
+echo 3 > /proc/vm/drop_caches
+```
+frees pagecache, dentries and inodes. The system then immediately starts caching again
+
