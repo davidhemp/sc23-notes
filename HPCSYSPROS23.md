@@ -71,7 +71,7 @@ Adam Focht - Pennsylvania State UniversityInstitute for Computational and Data S
 Accessing HPC storage remotely can be cumbersome and involve using out-of-band tools (i.e. NFS, SCP, or SSHFS on Windows or SMB on Linux). We have begun to provide users access to our HPC storage using a tool that enables a familiar interface and behavior - like OneDrive or Dropbox - and unifies access to university-wide storage pools. We will walk through the software, configuration, lessons learned, and next steps in offering this service to our researchers. We are also exploring the use of built-in file tagging and other internal automation to provide a sensitive data workflow for HIPAA-aligned data security. Efficacy and lessons learned from this approach will be discussed.
 
 <ins>Notes</ins>
-
+Penstate uses 19PB of Vast storage. Looking for a cross-platform that was similar to dropbox that worked with SSO and current user auth. Also needs to not be expensive (looking at you Box). Ended up picking [NextCloud](https://nextcloud.com/). This is run on Openshift. Penstate has a large LDAP and that can cause performance issues. Will continue to test and benchmark.
 
 ### What a GReaT Scheduling Opportunity
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp105&sess=sess422
