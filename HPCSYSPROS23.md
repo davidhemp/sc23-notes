@@ -83,6 +83,7 @@ There are likely more ideas about the fair way to schedule workloads than there 
 I will present GReaT allocations used at the Institute for Computational and Data Sciences, at Penn State University. We provide guaranteed start time expectations and priority scheduling, similar in some respects to condo-like scheduling systems. In addition to start time and resource availability, we provide access to temporary extended resources and protection against rogue or runaway jobs that could drain allocations. Our configuration required additional extensions in addition to the standard tools provided with slurm scheduling systems.
 
 <ins>Notes</ins>
+Resource allocation requirements, "everything forever and now". Want to let jobs overrun on the understanding that overrunning jobs can be pre-empted. This is a paid-for service.
 
 ### Overcoming Active Directory Woes with Plain Text Caches and Replacing Passwords
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp110&sess=sess422
@@ -92,6 +93,7 @@ Jason St John - Guardant Health
 Reliable authentication is a key component of all HPC systems. This paper discusses an approach that bypasses systemic authentication problems experienced by the authors to provide a simple and reliable manner of managing service accounts and user groups for HPC centers using plain text caches and alternatives to passwords.
 
 <ins>Notes</ins>
+Guardant Health does blood-sample-based cancer diagnostics. This is for active treatment not research so a job failure can delay treatment. They were seeing job failures because of LDAP and SSSD issues. They addressed this using libnss-extrausers. This provides /var/lib/extrausers which is basiclly a dump/cache of AD. Using git for version control. As the file looks like normal passwd, adding new users is much simpler. No passwords, SSH keys with google auth for SUDO. Sounds like the real issue is a messy sssd.conf and also having all users in a single OU instead of a seperate OU for just HPC users. 
 
 ### Heterogeneous Syslog Analysis: There Is Hope
 https://sc23.conference-program.com/presentation/?id=ws_hpcsysp108&sess=sess422
