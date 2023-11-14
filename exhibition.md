@@ -17,7 +17,9 @@ Maybe they can be used to manage a Student cluster? Depends on value add compair
 
 # Arm
 https://www.tomshardware.com/news/nvidia-claims-arm-grace-cpu-superchip-2x-faster-23x-more-efficient-than-intel-ice-lake
+
 https://www.nvidia.com/en-us/data-center/grace-cpu/
+
 Arm are claiming their new 144-core CPU is twice as fast as Intel Icelake. The most interesting thing here is they did it with a much lower power requirement. 
 The next question would be complier support and if this performance is found in other applications. This should be noted they compared their new CPU to Intel and AMDs old CPUs so I wouldn't expect this performance advantage to hold but it is still interesting due to the reduced power consumption. 
 
